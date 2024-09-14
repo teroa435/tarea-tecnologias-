@@ -1,47 +1,30 @@
-# Declaring a 3D array for a calendar with months, weeks, and days
-calendar = [
-    # January
-    [
-        # Weekdays
-        ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        # Days
-        [1, 2, 3, 4, 5, 6, 7],
-        [8, 9, 10, 11, 12, 13, 14],
-        [15, 16, 17, 18, 19, 20, 21],
-        [22, 23, 24, 25, 26, 27, 28],
-        [29, 30, 31, None, None, None, None]  # Placeholder for remaining days
+# Definir la matriz 3D de temperaturas
+temperaturas = [
+    [   # Ciudad 1
+        [78, 80, 82, 79, 85, 88, 92],  # Semana 1
+        [76, 79, 83, 81, 87, 89, 93],  # Semana 2
+        [77, 81, 85, 82, 88, 91, 95],  # Semana 3
+        [75, 78, 80, 79, 84, 87, 91]   # Semana 4
     ],
-    # February (considering a non-leap year)
-    [
-        # Weekdays
-        ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        # Days
-        [None, None, None, None, 1, 2, 3],  # Placeholder for previous days
-        [4, 5, 6, 7, 8, 9, 10],
-        [11, 12, 13, 14, 15, 16, 17],
-        [18, 19, 20, 21, 22, 23, 24],
-        [25, 26, 27, 28, None, None, None]  # Placeholder for remaining days
+    [   # Ciudad 2
+        [62, 64, 68, 70, 73, 75, 79],  # Semana 1
+        [63, 66, 70, 72, 75, 77, 81],  # Semana 2
+        [61, 65, 68, 70, 72, 76, 80],  # Semana 3
+        [64, 67, 69, 71, 74, 77, 80]   # Semana 4
     ],
-    # March
-    [
-        # Weekdays
-        ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        # Days
-        [1, 2, 3, 4, 5, 6, 7],
-        [8, 9, 10, 11, 12, 13, 14],
-        [15, 16, 17, 18, 19, 20, 21],
-        [22, 23, 24, 25, 26, 27, 28],
-        [29, 30, 31, None, None, None, None]  # Placeholder for remaining days
-    ],
-    # ... Continue with other months
+    [   # Ciudad 3
+        [90, 92, 94, 91, 88, 85, 82],  # Semana 1
+        [89, 91, 93, 90, 87, 84, 81],  # Semana 2
+        [91, 93, 95, 92, 89, 86, 83],  # Semana 3
+        [88, 90, 92, 89, 86, 83, 80]   # Semana 4
+    ]
 ]
 
-# Accessing and printing specific day from the calendar
-month = 2   # March
-week = 3    # Fourth week
-day = 2     # Wednesday
+# Nombres de las ciudades para mayor claridad
+ciudades = ["Ciudad 1", "Ciudad 2", "Ciudad 3"]
 
-weekday = calendar[month][0][day]
-date = calendar[month][1][day]
-
-print(f"Date: {weekday}, {month + 1}/{date}")
+# Calcular y mostrar el promedio de temperaturas por ciudad y semana
+for ciudad_idx, ciudad in enumerate(temperaturas):
+    for semana_idx, semana in enumerate(ciudad):
+        promedio = sum(semana) / len(semana)
+        print(f"Promedio de temperaturas en {ciudades[ciudad_idx]}, Semana {semana_idx + 1}: {promedio:.2f} grados")
